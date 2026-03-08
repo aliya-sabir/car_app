@@ -52,9 +52,17 @@ export async function fetchCars(filters: FilterProps) {
     'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
   };
 
+  // Build query params dynamically, only including non-empty values
+  const params = new URLSearchParams();
+  if (manufacturer) params.append('make', manufacturer);
+  if (year) params.append('year', year.toString());
+  if (model) params.append('model', model);
+  if (limit) params.append('limit', limit.toString());
+  if (fuel) params.append('fuel_type', fuel);
+
   // Set the required headers for the API request
   const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?${params.toString()}`,
     {
       headers: headers,
     }

@@ -1,6 +1,7 @@
 {
   "name": "car_app",
   "version": "0.1.0",
+  "description": "A modern car rental and catalogue application for browsing and discovering vehicles with advanced search and filtering capabilities",
   "private": true,
   "scripts": {
     "dev": "next dev",
