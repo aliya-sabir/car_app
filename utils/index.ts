@@ -46,9 +46,16 @@ export const deleteSearchParams = (type: string) => {
 export async function fetchCars(filters: FilterProps) {
   const { manufacturer, year, model, limit, fuel } = filters;
 
+  const apiKey = process.env.NEXT_PUBLIC_RAPID_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'NEXT_PUBLIC_RAPID_API_KEY is not set. Please add your RapidAPI key to .env.local.'
+    );
+  }
+
   // Set the required headers for the API request
   const headers: HeadersInit = {
-    'X-RapidAPI-Key': 'bffc8f4945mshebf2ad388c1f49bp150178jsnff5775b51e31',
+    'X-RapidAPI-Key': apiKey,
     'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
   };
 

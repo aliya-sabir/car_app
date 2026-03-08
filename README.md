@@ -42,6 +42,17 @@ cd car_app
 npm install
 ```
 
+### Environment Variables
+
+The app requires a RapidAPI key to fetch car data from the [Cars by API Ninjas](https://rapidapi.com/api-ninjas/api/cars-by-api-ninjas) API.
+
+1. Copy the example env file:
+   ```bash
+   cp .env.example .env.local
+   ```
+2. Sign up at [RapidAPI](https://rapidapi.com/api-ninjas/api/cars-by-api-ninjas) and subscribe to the **Cars by API Ninjas** API (free tier available).
+3. Replace `your_rapidapi_key_here` in `.env.local` with your actual API key.
+
 ### Running the Development Server
 
 ```bash
